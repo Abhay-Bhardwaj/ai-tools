@@ -15,7 +15,7 @@ interface PROPS {
 
 
 export default function OutputSection({aiOutput}:PROPS) {
-  const editorRef:any = useRef();
+  const editorRef:any = useRef<Editor>(null);
   const { toast } = useToast()
 
 

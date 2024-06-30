@@ -8,7 +8,7 @@ export default function SearchSection({onSearchInput}:any){
             <h2 className="text-3x font-bold">Browse All Templates</h2>
             <p>What would you like to create today?</p>
             <div className="flex w-full justify-center">
-                <div className="my-4 flex w-[50%] items-center gap-2 rounded-md border bg-white p-2">
+                <div className="my-4 flex w-full max-w-md items-center gap-2 rounded-md border bg-white p-2">
                     <Search className="text-primary" />
                     <input
                         type="text"

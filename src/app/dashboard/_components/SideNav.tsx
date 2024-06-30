@@ -33,7 +33,7 @@ export default function SideNav() {
     <div className="h-screen border bg-white p-5 shadow-sm">
       <Link href="/dashboard">
         <div className="flex h-6 justify-center">
-          <Image src={"/logo.svg"} alt="logo" width={120} height={120} />
+          <Image src={"/icons/logo.png"} alt="logo" width={120} height={120} />
         </div>
       </Link>
       <hr className="my-6 border" />
