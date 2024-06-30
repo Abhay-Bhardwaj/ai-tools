@@ -58,7 +58,7 @@ export default function History() {
 
     return (
         <div className='w-full h-full p-4'>
-            <div className='m-2 p-2 rounded-md w-full bg-white'>
+            <div className='p-2 rounded-md w-full bg-white'>
                 <div className='my-2 p-2'>
                     <h2 className='text-4xl font-bold'>History</h2>
                     <p>Here is the list of all the templates you have generated so far.</p>
