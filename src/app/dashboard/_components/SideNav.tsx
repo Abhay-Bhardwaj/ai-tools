@@ -41,7 +41,6 @@ export default function SideNav() {
         {MenuList.map((menu, index) => (
           <Link href={menu.path} key={index}>
             <div
-              
               className={`mb-2 flex items-center gap-2 rounded-lg p-3 hover:cursor-pointer hover:bg-primary hover:text-white ${path == menu.path && "bg-primary text-white"}`}
             >
               <menu.icon className="h-6 w-6" />

@@ -2,18 +2,17 @@
 import { Templates } from '@/app/(data)/Templates';
 import fetchUserHistory from '@/utils/fetchUserHistory';
 import { useToast } from '@/components/ui/use-toast';
-import { useUser } from '@clerk/nextjs';
 import React, { useEffect, useState } from 'react'
+import { currentUser } from '@clerk/nextjs/server';
 
 export default function History() {
     const [userHistory, setUserHistory] = useState([]);
-    const {user}=useUser();
     const { toast } = useToast();
+
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const response:any = await fetchUserHistory(user?.primaryEmailAddress?.emailAddress!);
-
+                const response:any = await fetchUserHistory();
                 if(response.length!==0){
                 const FullData:any = response.map((item:any) => {
                     const temp:any = Templates.filter((template) =>
@@ -63,7 +62,8 @@ export default function History() {
                 <thead className='bg-gray-50 items-center'>
                     <tr className=''>
                         <td className='p-2 w-1/6'>Template</td>
-                        <td className='p-2 w-3/6'>Ai Response</td>
+                        <td className='p-2 w-1/6'>Form Data</td>
+                        <td className='p-2 w-2/6'>Ai Response</td>
                         <td className='p-2 w-1/6'>Date</td>
                         <td className='p-2 w-1/6'>Copy</td>
                         
@@ -78,6 +78,7 @@ export default function History() {
                                         <p>{item.name}</p>
                                     </div>
                                 </td>
+                                <td className='p-2 w-3/6'><p className='h-20 overflow-y-scroll'></p></td>
                                 <td className='p-2 w-3/6'><p className='h-20 overflow-y-scroll'>{item.aiResponse}</p></td>
                                 <td className='p-2 w-1/6'>{`${item.createdAt.getDate()}/${item.createdAt.getMonth()}/${item.createdAt.getFullYear()}`}</td>
                                 <td className='p-2 w-1/6 hover:cursor-pointer' onClick={() => {copyElement(item.aiResponse!)}}>Copy</td>
